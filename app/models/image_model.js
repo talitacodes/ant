@@ -6,7 +6,8 @@ module.exports = {
     connection.query(sql, callback);
   },
   addImage: (image, connection, callback) => {
-    const sql = `INSERT INTO images (image_url) VALUES ("${image.image_url}")`;
+    console.log(image);
+    const sql = `INSERT INTO images (image_url, seq_id) VALUES ("${image.image_url}", ${image.seq_id})`;
     connection.query(sql, callback);
   },
   deleteImage: (image, connection, callback) => {

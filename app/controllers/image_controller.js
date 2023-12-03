@@ -24,6 +24,8 @@ module.exports.addImage = (app, req, res) => {
   const dbConn = conn();
   const image = req.body;
   addImage(image, dbConn, (error, result) => {
+    console.log(error);
+    console.log(result);
     res.send("Imagem adicionada com sucesso!");
   });
 };
@@ -34,6 +36,6 @@ module.exports.deleteImage = (app, req, res) => {
   const dbConn = conn();
   const image = req.body;
   deleteImage(image, dbConn, (error, result) => {
-    res.send(result);
+    res.send("Imagem apagada com sucesso!");
   });
 };
