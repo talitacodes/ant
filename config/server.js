@@ -1,17 +1,18 @@
 let express = require("express");
 let expressSession = require("express-session");
+let dotenv = require("dotenv");
 let crypto = require("crypto");
 
+dotenv.config();
 let app = express();
 let port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// console.log(process.env.SECRET);
 app.use(
   expressSession({
-    secret: "zara",
+    secret: process.env.SECRET,
     name: "uniqueSessionID",
     resave: false,
     saveUninitialized: false,
